@@ -11,7 +11,7 @@ export function getRandomItem<T>(array: ReadonlyArray<T>): T {
 }
 
 export const stdScalarFakers = {
-  'Int': () => faker.random.number({ min: 0, max: 99999, precision: 1 }),
+  'Int': () => faker.random.number({ min: 0, max: 10, precision: 1 }),
   'Float': () => faker.random.number({ min: 0, max: 99999, precision: 0.01 }),
   'String': () => 'string',
   'Boolean': () => faker.random.boolean(),
