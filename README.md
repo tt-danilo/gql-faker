@@ -15,7 +15,7 @@ npm run start
 
 
 
-## GRAPGQL QUERIES
+## Meeting Queries
 # Get List of L10 Meetings
 ```
 query getAttendeesData {
@@ -207,6 +207,30 @@ query getMeasurables {
         Key
       }
     }
+  }
+}
+```
+
+
+# Mutation Queries
+## Create and Delete Meeting
+```
+mutation {
+  CreateMeeting(title: "test") {
+    Id
+    Basics {
+      Id
+      Type
+      Key
+      Name
+      TeamType
+    }
+	}
+}
+
+mutation {
+  DeleteMeeting(Id: 123) {
+    affected_rows
   }
 }
 ```

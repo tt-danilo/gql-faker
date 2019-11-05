@@ -9,6 +9,7 @@
 # on the left panel to immediately test your changes.
 #
 # Developed with ❤️ by APIs.guru | https://github.com/APIs-guru/graphql-faker
+# import * from './meeting-mutation.graphql';
 
 type Meeting {
   Id: Int
@@ -243,7 +244,11 @@ type Query {
   meeting(Id: Int, meetingType: String): Meeting
 }
 
+type Mutation {
+    CreateMeeting(title: String!): Meeting
+}
+
 schema {
   query: Query
-  # mutation: Mutation
+  mutation: Mutation
 }
