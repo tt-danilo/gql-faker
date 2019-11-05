@@ -6,21 +6,21 @@
 - [x] User
 - [x] Settings
 - [x] Scorecard
-- [ ] MeetingNotes
-- [ ] Rock
-- [ ] Todo
-- [ ] Headline
-- [ ] IssuesList
-- [ ] Page
+- [x] MeetingNotes
+- [x] Rock
+- [x] Todo
+- [x] Headline
+- [x] IssuesList
+- [x] Page
 - [x] MeasurableOrder
 - [x] Measurable
 - [x] Score
 - [x] Week
 - [x] PermissionDto
 - [x] NameId
-- [ ] Picture
-- [ ] Issue
-- [ ] LocalDateTime
+- [x] Picture
+- [x] Issue
+- [x] LocalDateTime
 
 
 # Development
