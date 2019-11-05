@@ -3,7 +3,7 @@
 # GraphQL Faker
 ## To-Do
 - [x] L10 GQL Queries
-- [] L10 Mutation queries
+- [ ] L10 Mutation queries
 
 ## Development
 
