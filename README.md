@@ -3,7 +3,7 @@
 # GraphQL Faker
 ## To-Do
 - [x] L10 GQL Queries
-- [] L10 Mutation queries
+- [ ] L10 Mutation queries
 
 ## Development
 
@@ -15,8 +15,13 @@ npm run start
 
 
 
+<<<<<<< HEAD
 ## Meeting Queries
 # Get List of L10 Meetings
+=======
+# GRAPGQL QUERIES
+## Get List of L10 Meetings
+>>>>>>> 00ad834005037d99c90aca86826426cb05e41cd4
 ```
 query getAttendeesData {
   meeting(meetingType: "L10") {
@@ -29,7 +34,7 @@ query getAttendeesData {
 }
 ```
 
-# Get Rocks Data
+## Get Rocks Data
 ```
 query getRocksData {
   meeting {
@@ -62,7 +67,7 @@ query getRocksData {
 }
 ```
 
-# Get Attendees Data
+## Get Attendees Data
 ```
 query getAttendeesData {
   meeting {
@@ -77,7 +82,7 @@ query getAttendeesData {
 }
 ```
 
-# Get a list of issues for a Level 10 meeting
+## Get a list of issues for a Level 10 meeting
 ```
 query getIssuesList {
   meeting(Id: 123) {
@@ -103,7 +108,7 @@ query getIssuesList {
 }
 ```
 
-# Get a list of to-dos in a Level 10 meeting
+## Get a list of to-dos in a Level 10 meeting
 ```
 query getTodosData {
   meeting(Id: 123) {
@@ -136,7 +141,7 @@ query getTodosData {
 }
 ```
 
-# Get a list of people headlines in a Level 10 meeting
+## Get a list of people headlines in a Level 10 meeting
 ```
 query getHeadlinesData {
   meeting {
@@ -168,7 +173,7 @@ query getHeadlinesData {
 }
 ```
 
-# Get a list of measurables in a Level 10 meeting
+## Get a list of measurables in a Level 10 meeting
 ```
 query getMeasurables {
   meeting {
@@ -210,7 +215,6 @@ query getMeasurables {
   }
 }
 ```
-
 
 # Mutation Queries
 ## Create and Delete Meeting
