@@ -15,13 +15,8 @@ npm run start
 
 
 
-<<<<<<< HEAD
 ## Meeting Queries
 # Get List of L10 Meetings
-=======
-# GRAPGQL QUERIES
-## Get List of L10 Meetings
->>>>>>> 00ad834005037d99c90aca86826426cb05e41cd4
 ```
 query getAttendeesData {
   meeting(meetingType: "L10") {
