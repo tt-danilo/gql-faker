@@ -233,3 +233,78 @@ mutation {
   }
 }
 ```
+
+## Create and Delete Rocks
+```
+mutation {
+  AddRocks(meetingId: 1, title: "test") {
+    affected_rows
+  }
+}
+
+mutation {
+  DeleteRocks(meetingId: 1) {
+    affected_rows
+  }
+}
+```
+
+## Create and Delete Todos
+```
+mutation {
+  AddTodos(meetingId: 1, title: "test") {
+    affected_rows
+  }
+}
+
+mutation {
+  DeleteTodos(meetingId: 1) {
+    affected_rows
+  }
+}
+```
+
+## Create and Delete Issues
+```
+mutation {
+  AddIssues(meetingId: 1, title: "test") {
+    affected_rows
+  }
+}
+
+mutation {
+  DeleteIssues(meetingId: 1) {
+    affected_rows
+  }
+}
+```
+
+## Create and Delete Issues
+```
+mutation {
+  AddAttendees(meetingId: 1, title: "test") {
+    affected_rows
+  }
+}
+
+mutation {
+  DeleteAttendees(meetingId: 1) {
+    affected_rows
+  }
+}
+```
+
+## Create and Delete People Headline
+```
+mutation {
+  AddPeopleHeadline(meetingId: 1, title: "test") {
+    affected_rows
+  }
+}
+
+mutation {
+  DeletePeopleHeadline(meetingId: 1) {
+    affected_rows
+  }
+}
+```
