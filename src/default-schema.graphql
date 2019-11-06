@@ -245,7 +245,16 @@ type Query {
 }
 
 type Mutation {
-    CreateMeeting(title: String!): Meeting
+  CreateMeeting(title: String!): Meeting
+  DeleteMeeting(Id: Int!): Mutation_response
+  AddRocks(meetingId: Int!, title: String!): Mutation_response
+  DeleteRocks(meetingId: Int!, title: String!): Mutation_response
+  AddTodos(meetingId: Int!, title: String!): Mutation_response
+  DeleteTodos(meetingId: Int!, title: String!): Mutation_response
+  AddIssues(meetingId: Int!, title: String!): Mutation_response
+  DeleteIssues(meetingId: Int!, title: String!): Mutation_response
+  AddAttendees(meetingId: Int!, title: String!): Mutation_response
+  DeleteAttendees(meetingId: Int!, title: String!): Mutation_response
 }
 
 schema {
