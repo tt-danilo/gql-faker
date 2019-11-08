@@ -1,0 +1,257 @@
+type Meeting {
+  Id: Int
+  Type: String
+  Key: String
+  CreateTime: String @examples(values: ["2019-10-31T09:19:29.915Z"])
+  CreatedBy: User
+  Basics: Settings
+  Attendees: [User] @listLength(min: 0, max: 5)
+  Scorecard: Scorecard
+  Notes: [MeetingNotes] @listLength(min: 0, max: 5)
+  Rocks: [Rock] @listLength(min: 0, max: 5)
+  Todos: [Todo] @listLength(min: 0, max: 5)
+  Milestones: [Todo] @listLength(min: 0, max: 5)
+  Headlines: [Headline] @listLength(min: 0, max: 5)
+  IssuesList: IssuesList
+  HeadlinesUrl: String
+  HeadlineType: String @examples(values: ["None", "HeadlinesBox", "HeadlinesList"])
+  VtoId: Int
+  Pages: [Page] @listLength(min: 0, max: 5)
+  MeetingType: String @examples(values: ["L10", "SamePage"])
+}
+
+type User {
+  Id: Int
+  Type: String
+  Key: String
+  Name: String @fake(type:fullName)
+  ImageUrl: String @fake(type:imageUrl)
+}
+
+type Settings {
+  Id: Int
+  Type: String
+  Key: String
+  Name: String @fake(type:fullName)
+  TeamType: String @examples(values: ["LeadershipTeam", "DepartmentalTeam", "SamePageMeeting", "Other"])
+}
+
+type Scorecard {
+  Id: Int
+  Type: String
+  Key: String
+  MeasurableOrder: [MeasurableOrder] @listLength(min: 0, max: 5)
+  Measurables: [Measurable] @listLength(min: 0, max: 5)
+  Scores: [Score] @listLength(min: 0, max: 5)
+  Weeks: [Week]
+  ReverseScorecard: Boolean 
+  ScorecardWeekDay: String @examples(values: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"])
+  Period: String
+  DateFormat1: String
+  DateFormat2: String
+}
+
+type MeasurableOrder {
+  Id: Int
+  Type: String
+  ScorecardId: Int
+  MeasurableId: Int
+  Ordering: Int
+  Key: String
+}
+
+type Measurable {
+  Name: String @fake(type:fullName)
+  Id: Int
+  Type: String
+  Key: String
+  Owner: User
+  Admin: User
+  Target: Int
+  AltTarget: Int
+  Direction: String @examples(values: ["LessThanOrEqual", "LessThan", "GreaterThan", "EqualTo", "GreaterThanNotEqual", "Between"])
+  IsDivider: Boolean
+  IsReorderable: Boolean
+  ShowCumulative: Boolean
+  Cumulative: Int
+  CumulativeRange: String
+  Modifiers: String @examples(values: ["None", "Dollar", "Percent", "Pound", "Euros"])
+  Ordering: Int
+  Disabled: Boolean
+  Generated: Boolean
+  IsFormula: Boolean
+  Average: Int
+  ShowAverage: Boolean
+  AverageRange: String
+  Permission: PermissionDto
+  Origins: NameId
+}
+
+type Score {
+  Id: Int
+  Type: String
+  Key: String
+  ForWeek: Int
+  Week: String
+  MeasurableId: Int
+  MeasurableName: String
+  Origins: NameId
+  DateEntered: String
+  Measured: Int
+  Disabled: Boolean
+  Direction: String @examples(values: ["LessThanOrEqual", "LessThan", "GreaterThan", "EqualTo", "GreaterThanNotEqual", "Between"])
+  Target: Int
+  AltTarget: Int
+  OrganizationId: Int
+  AccountableUserId: Int
+}
+
+type Week {
+  Id: Int
+  Type: String
+  Key: String
+  ForWeekNumber: Int
+  ForWeek: String
+  DisplayDate: String
+  LocalDate: String @fake(type: recentDate)
+  IsCurrentWeek: Boolean
+}
+
+type PermissionDto {
+  CanEdit: Boolean
+}
+
+type NameId {
+  Id: Int
+  Name: String @fake(type: fullName)
+}
+
+type MeetingNotes {
+  Id: Int
+  Type: String
+  Key: String
+  DetailsUrl: String @fake(type: url)
+  Title: String
+}
+
+type Rock {
+  Id: Int
+  Type: String
+  Key: String
+  Name: String
+  Owner: User
+  DueDate: String
+  Complete: Boolean
+  Completion: String @examples(values: ["Indeterminate", "AtRisk", "OnTrack", "Complete"])
+  CreateTime: String
+  Archived: Boolean
+  Permission: PermissionDto
+  Origins: [NameId] @listLength(min: 0, max: 5)
+}
+
+type Todo {
+  Id: Int
+  Type: String
+  Key: String
+  Name: String
+  DetailsUrl: String
+  Origin: String
+  OriginId: Int
+  DueDate: String
+  Owner: User
+  CompleteTime: String
+  CreateTime: String
+  Complete: Boolean
+  TodoType: String @examples(values: ["L10", "Personal", "Milestone"])
+  Ordering: Int
+  Permission: PermissionDto
+}
+
+type Headline {
+  Id: Int
+  Type: String
+  Key: String
+  Name: String
+  DetailsUrl: String
+  Owner: User
+  CloseTime: String
+  CreateTime: String
+  About: Picture
+  Archived: Boolean
+  Permission: PermissionDto
+  Origin: String
+  OriginId: Int
+}
+
+type IssuesList {
+  Id: Int
+  Type: String
+  Key: String
+  Issues: [Issue] @listLength(min: 0, max: 5)
+  Prioritization: String
+}
+
+type Page {
+  Minutes: Int,
+  Title: String
+  Type: String @examples(values: ["Segue", "Scorecard", "Rock Review", "People Headlines", "To-do List", "IDS", "Conclude", "Title Page", "Notes Box", "External Page"])
+}
+
+type Picture {
+  Id: Int
+  Type: String
+  Key: String
+  ImageUrl: String @fake(type: url)
+  Name: String @fake(type:fullName)
+  Initials: String @fake(type: firstName)
+}
+
+type Issue{
+  Name: String @fake(type: fullName)
+  Id: Int
+  Type: String
+  Key: String
+  Owner: User
+  DetailsUrl: String @fake(type:url)
+  Complete: Boolean
+  CreateTime: String @fake(type: recentDate)
+  CloseTime: String @fake(type: recentDate)
+  Origin: String
+  OriginId: Int
+  Permission: PermissionDto
+}
+  
+type LocalDateTime {
+  Local: Boolean
+  Date: String @fake(type:recentDate)
+}
+
+
+type Query {
+  meeting(Id: Int, meetingType: String): Meeting
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+type Mutation {
+  CreateMeeting(title: String!): Meeting
+  DeleteMeeting(Id: Int!): Mutation_response
+  AddRocks(meetingId: Int!, title: String!): Mutation_response
+  DeleteRocks(meetingId: Int!): Mutation_response
+  AddTodos(meetingId: Int!, title: String!): Mutation_response
+  DeleteTodos(meetingId: Int!): Mutation_response
+  AddIssues(meetingId: Int!, title: String!): Mutation_response
+  DeleteIssues(meetingId: Int!): Mutation_response
+  AddAttendees(meetingId: Int!, title: String!): Mutation_response
+  DeleteAttendees(meetingId: Int!): Mutation_response
+  AddPeopleHeadline(meetingId: Int!, title: String!): Mutation_response
+  DeletePeopleHeadline(meetingId: Int!): Mutation_response
+  
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

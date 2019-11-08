@@ -1,0 +1,52 @@
+type Headline {
+    Id: Int
+    Type: String
+    Key: String
+    Name: String
+    DetailsUrl: String
+    Owner: User
+    CloseTime: String
+    CreateTime: String
+    About: Picture
+    Archived: Boolean
+    Permission: PermissionDto
+    Origin: String
+    OriginId: Int
+}
+
+type User {
+  Id: Int
+  Type: String
+  Key: String
+  Name: String @fake(type:fullName)
+  ImageUrl: String @fake(type:imageUrl)
+}
+
+type Picture {
+  Id: Int
+  Type: String
+  Key: String
+  ImageUrl: String @fake(type: url)
+  Name: String @fake(type:fullName)
+  Initials: String @fake(type: firstName)
+}
+
+type PermissionDto {
+  CanEdit: Boolean
+}
+
+type Query {
+  headline: Headline
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+# type Mutation {
+# }
+
+schema {
+  query: Query
+  # mutation: Mutation
+}
