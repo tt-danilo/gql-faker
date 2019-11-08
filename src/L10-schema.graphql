@@ -1,8 +1,8 @@
 type Meeting {
-  Id: Int
-  Type: String
-  Key: String
-  CreateTime: String @examples(values: ["2019-10-31T09:19:29.915Z"])
+  Id: Int @examples(values: [493])
+  Type: String @examples(values: ["AngularRecurrence"])
+  Key: String @examples(values: ["AngularRecurrence_493"])
+  CreateTime: String @examples(values: ["2019-11-08T03:18:21"])
   CreatedBy: User
   Basics: Settings
   Attendees: [User] @listLength(min: 0, max: 5)
@@ -13,106 +13,106 @@ type Meeting {
   Milestones: [Todo] @listLength(min: 0, max: 5)
   Headlines: [Headline] @listLength(min: 0, max: 5)
   IssuesList: IssuesList
-  HeadlinesUrl: String
+  HeadlinesUrl: String @examples(values: "https://notes.traction.tools/p/49cc99ce-4913-4306-9f4b-ec7f28c8cc54?showControls=true&amp;showChat=false")
   HeadlineType: String @examples(values: ["None", "HeadlinesBox", "HeadlinesList"])
-  VtoId: Int
+  VtoId: Int @examples(values: 493)
   Pages: [Page] @listLength(min: 0, max: 5)
   MeetingType: String @examples(values: ["L10", "SamePage"])
 }
 
 type User {
-  Id: Int
-  Type: String
-  Key: String
-  Name: String @fake(type:fullName)
-  ImageUrl: String @fake(type:imageUrl)
+  Id: Int @examples(values: 605)
+  Type: String @examples(values: "AngularUser")
+  Key: String @examples(values: "AngularUser_605")
+  Name: String @examples(values: "Danilo Zabala")
+  ImageUrl: String @examples(values: "/i/userplaceholder")
 }
 
 type Settings {
-  Id: Int
-  Type: String
-  Key: String
-  Name: String @fake(type:fullName)
+  Id: Int @examples(values: 493)
+  Type: String @examples(values: "AngularBasics")
+  Key: String @examples(values: "AngularBasics_493")
+  Name: String @examples(values: "Test Meeting #1")
   TeamType: String @examples(values: ["LeadershipTeam", "DepartmentalTeam", "SamePageMeeting", "Other"])
 }
 
 type Scorecard {
-  Id: Int
-  Type: String
-  Key: String
+  Id: Int @examples(values: 493)
+  Type: String @examples(values: "AngularScorecard")
+  Key: String @examples(values: "AngularScorecard_493")
   MeasurableOrder: [MeasurableOrder] @listLength(min: 0, max: 5)
   Measurables: [Measurable] @listLength(min: 0, max: 5)
   Scores: [Score] @listLength(min: 0, max: 5)
   Weeks: [Week]
   ReverseScorecard: Boolean 
   ScorecardWeekDay: String @examples(values: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"])
-  Period: String
-  DateFormat1: String
-  DateFormat2: String
+  Period: String @examples(values: "Weekly")
+  DateFormat1: String @examples(values: "MMM d")
+  DateFormat2: String @examples(values: "MMM d")
 }
 
 type MeasurableOrder {
-  Id: Int
-  Type: String
-  ScorecardId: Int
-  MeasurableId: Int
-  Ordering: Int
-  Key: String
+  Id: String @examples(values: ["493_1060", "493_1061"])
+  Type: String @examples(values: "AngularMeasurableOrder")
+  ScorecardId: Int @examples(values: 493)
+  MeasurableId: Int @examples(values: [1060, 1061])
+  Ordering: Int @examples(values: [0, 1])
+  Key: String @examples(values: ["AngularMeasurableOrder_493_1060", "AngularMeasurableOrder_493_1061"])
 }
 
 type Measurable {
-  Name: String @fake(type:fullName)
-  Id: Int
-  Type: String
-  Key: String
+  Name: String @examples(values: "Measurable #1")
+  Id: Int @examples(values: 1060)
+  Type: String @examples(values: "AngularMeasurable")
+  Key: String @examples(values: "AngularMeasurable_1060")
   Owner: User
   Admin: User
-  Target: Int
-  AltTarget: Int
+  Target: Int @examples(values: 1)
+  AltTarget: Int @examples(values: "null")
   Direction: String @examples(values: ["LessThanOrEqual", "LessThan", "GreaterThan", "EqualTo", "GreaterThanNotEqual", "Between"])
-  IsDivider: Boolean
-  IsReorderable: Boolean
-  ShowCumulative: Boolean
-  Cumulative: Int
-  CumulativeRange: String
+  IsDivider: Boolean @examples(values: false)
+  IsReorderable: Boolean @examples(values: true)
+  ShowCumulative: Boolean @examples(values: "null")
+  Cumulative: Int @examples(values: "null")
+  CumulativeRange: String @examples(values: "2019-11-08T03:23:51")
   Modifiers: String @examples(values: ["None", "Dollar", "Percent", "Pound", "Euros"])
-  Ordering: Int
-  Disabled: Boolean
-  Generated: Boolean
-  IsFormula: Boolean
-  Average: Int
-  ShowAverage: Boolean
-  AverageRange: String
+  Ordering: Int @examples(values: 0)
+  Disabled: Boolean @examples(values: "null")
+  Generated: Boolean @examples(values: "null")
+  IsFormula: Boolean @examples(values: false)
+  Average: Int @examples(values: "null")
+  ShowAverage: Boolean @examples(values: false)
+  AverageRange: String @examples(values: "2019-11-08T03:23:51")
   Permission: PermissionDto
   Origins: NameId
 }
 
 type Score {
-  Id: Int
-  Type: String
-  Key: String
-  ForWeek: Int
-  Week: String
-  MeasurableId: Int
-  MeasurableName: String
+  Id: Int @examples(values: 70529)
+  Type: String @examples(values: "AngularScore")
+  Key: String @examples(values: "AngularScore_70529")
+  ForWeek: Int @examples(values: 2587)
+  Week: String @examples(values: "2019-07-28T00:00:00Z")
+  MeasurableId: Int @examples(values: 1060)
+  MeasurableName: String @examples(values: "Measurable #1")
   Origins: NameId
-  DateEntered: String
-  Measured: Int
-  Disabled: Boolean
+  DateEntered: String @examples(values: "null")
+  Measured: Int @examples(values: "null")
+  Disabled: Boolean @examples(values: "null")
   Direction: String @examples(values: ["LessThanOrEqual", "LessThan", "GreaterThan", "EqualTo", "GreaterThanNotEqual", "Between"])
-  Target: Int
-  AltTarget: Int
-  OrganizationId: Int
-  AccountableUserId: Int
+  Target: Int @examples(values: 1)
+  AltTarget: Int @examples(values: "Null")
+  OrganizationId: Int @examples(values: 604)
+  AccountableUserId: Int @examples(values: 605)
 }
 
 type Week {
-  Id: Int
-  Type: String
-  Key: String
-  ForWeekNumber: Int
-  ForWeek: String
-  DisplayDate: String
+  Id: Int @examples(values: 637004736000000000)
+  Type: String @examples(values: "AngularWeek")
+  Key: String @examples(values: "AngularWeek_637004736000000000")
+  ForWeekNumber: Int @examples(values: 2588)
+  ForWeek: String @examples(values: "019-08-04T00:00:00Z")
+  DisplayDate: String @examples(values: "2019-07-27T18:00:00Z")
   LocalDate: String @fake(type: recentDate)
   IsCurrentWeek: Boolean
 }
@@ -127,97 +127,97 @@ type NameId {
 }
 
 type MeetingNotes {
-  Id: Int
-  Type: String
-  Key: String
-  DetailsUrl: String @fake(type: url)
-  Title: String
+  Id: Int @examples(values: 18)
+  Type: String @examples(values: "AngularMeetingNotes")
+  Key: String @examples(values: "AngularMeetingNotes_18")
+  DetailsUrl: String @examples(values: "https://notes.traction.tools/p/7febb161-ae81-486d-a766-6807a686cb01?showControls=true&amp;showChat=false")
+  Title: String @examples(values: "test Note")
 }
 
 type Rock {
-  Id: Int
-  Type: String
-  Key: String
-  Name: String
+  Id: Int @examples(values: 1138)
+  Type: String @examples(values: "AngularRock")
+  Key: String @examples(values: "AngularRock_1138")
+  Name: String @examples(values: "Rock #1")
   Owner: User
-  DueDate: String
+  DueDate: String @examples(values: "2020-02-06T03:24:27")
   Complete: Boolean
   Completion: String @examples(values: ["Indeterminate", "AtRisk", "OnTrack", "Complete"])
-  CreateTime: String
+  CreateTime: String @examples(values: "2019-11-08T03:24:35")
   Archived: Boolean
   Permission: PermissionDto
   Origins: [NameId] @listLength(min: 0, max: 5)
 }
 
 type Todo {
-  Id: Int
-  Type: String
-  Key: String
-  Name: String
-  DetailsUrl: String
-  Origin: String
-  OriginId: Int
-  DueDate: String
+  Id: Int @examples(values: 3294)
+  Type: String @examples(values: "AngularTodo")
+  Key: String @examples(values: "AngularTodo_3294")
+  Name: String @examples(values: "To-Do #1")
+  DetailsUrl: String @examples(values: "http://env-tractiontools-qa-1.us-west-2.elasticbeanstalk.com/Todo/Pad/3294")
+  Origin: String @examples(values: "Test Meeting #1")
+  OriginId: Int @examples(values: 493)
+  DueDate: String @examples(values: "2019-11-15T15:59:59")
   Owner: User
-  CompleteTime: String
-  CreateTime: String
-  Complete: Boolean
+  CompleteTime: String @examples(values: "Null")
+  CreateTime: String @examples(values: "2019-11-08T03:25:24")
+  Complete: Boolean @examples(values: 493)
   TodoType: String @examples(values: ["L10", "Personal", "Milestone"])
-  Ordering: Int
+  Ordering: Int @examples(values: -3294)
   Permission: PermissionDto
 }
 
 type Headline {
-  Id: Int
-  Type: String
-  Key: String
-  Name: String
-  DetailsUrl: String
+  Id: Int @examples(values: 270)
+  Type: String @examples(values: "AngularHeadline")
+  Key: String @examples(values: "AngularHeadline_270")
+  Name: String @examples(values: "Headline #1")
+  DetailsUrl: String @examples(values: "http://env-tractiontools-qa-1.us-west-2.elasticbeanstalk.com/headlines/pad/270")
   Owner: User
-  CloseTime: String
-  CreateTime: String
+  CloseTime: String @examples(values: "Null")
+  CreateTime: String @examples(values: "2019-11-08T03:25:07")
   About: Picture
-  Archived: Boolean
+  Archived: Boolean @examples(values: false)
   Permission: PermissionDto
-  Origin: String
-  OriginId: Int
+  Origin: String @examples(values: "Null")
+  OriginId: Int @examples(values: 493)
 }
 
 type IssuesList {
-  Id: Int
-  Type: String
-  Key: String
+  Id: Int @examples(values: 493)
+  Type: String @examples(values: "AngularIssuesList")
+  Key: String @examples(values: "AngularIssuesList_493")
   Issues: [Issue] @listLength(min: 0, max: 5)
-  Prioritization: String
+  Prioritization: String @examples(values: "Rank")
 }
 
 type Page {
-  Minutes: Int,
-  Title: String
+  Minutes: Int, @examples(values:[5, 60])
+  Title: String @examples(values: ["Segue", "Scorecard", "Rock Review", "People Headlines", "To-do List", "IDS", "Conclude", "Title Page", "Notes Box", "External Page"])
   Type: String @examples(values: ["Segue", "Scorecard", "Rock Review", "People Headlines", "To-do List", "IDS", "Conclude", "Title Page", "Notes Box", "External Page"])
 }
 
 type Picture {
-  Id: Int
-  Type: String
-  Key: String
-  ImageUrl: String @fake(type: url)
-  Name: String @fake(type:fullName)
-  Initials: String @fake(type: firstName)
+  Id: Int @examples(values: -270)
+  Type: String @examples(values: "AngularPicture")
+  Key: String @examples(values: "AngularPicture_-270")
+  ImageUrl: String @examples(values: "https://s3.amazonaws.com/Radial/placeholder/orgPlaceholder.png")
+  Name: String @examples(values: Null)
+  Initials: String @examples(values: Null)
 }
 
 type Issue{
   Name: String @fake(type: fullName)
-  Id: Int
-  Type: String
-  Key: String
+  Id: Int @examples(values: [786, 787])
+  Type: String @examples(values: "AngularIssue")
+  Key: String @examples(values: ["AngularIssue_786", "AngularIssue_787"])
   Owner: User
-  DetailsUrl: String @fake(type:url)
+  DetailsUrl: String @examples(values: "http://env-tractiontools-qa-1.us-west-2.elasticbeanstalk.com/Issues/Pad/700")
   Complete: Boolean
-  CreateTime: String @fake(type: recentDate)
-  CloseTime: String @fake(type: recentDate)
-  Origin: String
-  OriginId: Int
+  CreateTime: String @examples(values: "2019-11-08T11:25:50")
+  CloseTime: String @examples(values: Null)
+  Origin: String @examples(values: "Test Meeting #1")
+  OriginId: Int @examples(values: 493)
   Permission: PermissionDto
 }
   
