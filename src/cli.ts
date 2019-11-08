@@ -23,7 +23,7 @@ function builder(cmd) {
         describe: 'HTTP Port',
         type: 'number',
         requiresArg: true,
-        default: process.env.PORT || 9002,
+        default: process.env.PORT || 3000,
       },
       'open': {
         alias: 'o',
