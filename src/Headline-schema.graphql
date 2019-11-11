@@ -1,34 +1,35 @@
 type Headline {
-    Id: Int
-    Type: String
-    Key: String
-    Name: String
-    DetailsUrl: String
+    Id: Int @examples(values: 271)
+    Type: String @examples(values: "AngularHeadline")
+    Key: String @examples(values: "AngularHeadline_271")
+    Name: String @examples(values: "Headline #2")
+    DetailsUrl: String @examples(values: "http://env-tractiontools-qa-1.us-west-2.elasticbeanstalk.com/headlines/pad/271")
     Owner: User
-    CloseTime: String
-    CreateTime: String
+    CloseTime: String @examples(values: Null)
+    CreateTime: String @examples(values: "2019-11-08T03:25:14")
     About: Picture
     Archived: Boolean
     Permission: PermissionDto
-    Origin: String
-    OriginId: Int
+    Origin: String @examples(values: Null)
+    OriginId: Int @examples(values: 493)
 }
 
 type User {
-  Id: Int
-  Type: String
-  Key: String
-  Name: String @fake(type:fullName)
-  ImageUrl: String @fake(type:imageUrl)
+  Id: Int @examples(values: 605)
+  Type: String @examples(values: "AngularUser")
+  Key: String @examples(values: "AngularUser_605")
+  Name: String @examples(values: "Danilo Zabala")
+  ImageUrl: String @examples(values: "/i/userplaceholder")
 }
 
+
 type Picture {
-  Id: Int
-  Type: String
-  Key: String
-  ImageUrl: String @fake(type: url)
-  Name: String @fake(type:fullName)
-  Initials: String @fake(type: firstName)
+  Id: Int @examples(values: -270)
+  Type: String @examples(values: "AngularPicture")
+  Key: String @examples(values: "AngularPicture_-270")
+  ImageUrl: String @examples(values: "https://s3.amazonaws.com/Radial/placeholder/orgPlaceholder.png")
+  Name: String @examples(values: Null)
+  Initials: String @examples(values: Null)
 }
 
 type PermissionDto {
@@ -36,7 +37,7 @@ type PermissionDto {
 }
 
 type Query {
-  headline: Headline
+  headline(Id: Int!): Headline
 }
 
 type Mutation_response {

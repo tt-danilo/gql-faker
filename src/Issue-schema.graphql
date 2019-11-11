@@ -1,0 +1,48 @@
+type Issue{
+  Name: String @examples(values: "Issue #1")
+  Id: Int @examples(values: [786, 787])
+  Type: String @examples(values: "AngularIssue")
+  Key: String @examples(values: ["AngularIssue_786", "AngularIssue_787"])
+  Owner: User
+  DetailsUrl: String @examples(values: "http://env-tractiontools-qa-1.us-west-2.elasticbeanstalk.com/Issues/Pad/700")
+  Complete: Boolean
+  CreateTime: String @examples(values: "2019-11-08T11:25:50")
+  CloseTime: String @examples(values: Null)
+  Origin: String @examples(values: "Test Meeting #1")
+  OriginId: Int @examples(values: 493)
+  Permission: PermissionDto
+}
+
+type User {
+  Id: Int @examples(values: 605)
+  Type: String @examples(values: "AngularUser")
+  Key: String @examples(values: "AngularUser_605")
+  Name: String @examples(values: "Danilo Zabala")
+  ImageUrl: String @examples(values: "/i/userplaceholder")
+}
+
+type PermissionDto {
+  CanEdit: Boolean
+}
+
+type Query {
+  getIssue(Id: Int!): Issue
+  getOwnIssue(userId: Int!): [Issue] @listLength(min:1,max:5)
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+type Mutation {
+  Insert_Issue(title: String!, meetingId: Int!, ownerId: Int!): Mutation_response
+  Move_IssueToVTO(issueId: Int!): Mutation_response
+  Move_IssueFromVTO(issueId: Int!): Mutation_response
+  Move_IssueToAnotherMeeting(issueId: Int!, meetingId: Int!): Mutation_response
+  Mark_issueCompleted(issueId: Int!): Mutation_response
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

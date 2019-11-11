@@ -1,0 +1,91 @@
+type Measurable {
+  Name: String @examples(values: "Measurable #1")
+  Id: Int @examples(values: 1060)
+  Type: String @examples(values: "AngularMeasurable")
+  Key: String @examples(values: "AngularMeasurable_1060")
+  Owner: User
+  Admin: User
+  Target: Int @examples(values: 1)
+  AltTarget: Int
+  Direction: String @examples(values: DirectionValues)
+  IsDivider: Boolean @examples(values: false)
+  IsReorderable: Boolean @examples(values: true)
+  ShowCumulative: Boolean
+  Cumulative: Int
+  CumulativeRange: String @examples(values: "2019-11-08T03:23:51")
+  Modifiers: String @examples(values: ["None", "Dollar", "Percent", "Pound", "Euros"])
+  Ordering: Int @examples(values: 0)
+  Disabled: Boolean
+  Generated: Boolean
+  IsFormula: Boolean @examples(values: false)
+  Average: Int
+  ShowAverage: Boolean @examples(values: false)
+  AverageRange: String @examples(values: "2019-11-08T03:23:51")
+  Permission: PermissionDto
+  Origins: NameId
+}
+
+type User {
+  Id: Int @examples(values: 605)
+  Type: String @examples(values: "AngularUser")
+  Key: String @examples(values: "AngularUser_605")
+  Name: String @examples(values: "Danilo Zabala")
+  ImageUrl: String @examples(values: "/i/userplaceholder")
+}
+
+type PermissionDto {
+  CanEdit: Boolean
+}
+
+type NameId {
+  Id: Int
+  Name: String @fake(type: fullName)
+}
+
+type Score {
+  Id: Int @examples(values: 70529)
+  Type: String @examples(values: "AngularScore")
+  Key: String @examples(values: "AngularScore_70529")
+  ForWeek: Int @examples(values: 2587)
+  Week: String @examples(values: "2019-07-28T00:00:00Z")
+  MeasurableId: Int @examples(values: 1060)
+  MeasurableName: String @examples(values: "Measurable #1")
+  Origins: NameId
+  DateEntered: String @examples(values: "null")
+  Measured: Int
+  Disabled: Boolean
+  Direction: String @examples(values: DirectionValues)
+  Target: Int @examples(values: 1)
+  AltTarget: Int
+  OrganizationId: Int @examples(values: 604)
+  AccountableUserId: Int @examples(values: 605)
+}
+
+enum DirectionValues {
+  LessThanOrEqual
+  LessThan
+  GreaterThan
+  EqualTo
+  GreaterThanNotEqual
+  Between
+}
+
+type Query {
+  Get_Measurable(measurable_id: Int!): Measurable
+  Get_MeasurableByUser(userId: Int!): [Measurable] @listLength(min:1, max:5)
+  Get_MeasurableScores(measurable_id: Int!): [Score] @listLength(min:5, max: 10)
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+type Mutation {
+  Add_Measurable(name: String!, direction: DirectionValues!, accoutableUserId: Int!): Mutation_response
+  Update_Score(measurableId: Int!, weekId: Int!): Mutation_response
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

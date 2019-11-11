@@ -68,19 +68,19 @@ type Measurable {
   Owner: User
   Admin: User
   Target: Int @examples(values: 1)
-  AltTarget: Int @examples(values: "null")
+  AltTarget: Int
   Direction: String @examples(values: ["LessThanOrEqual", "LessThan", "GreaterThan", "EqualTo", "GreaterThanNotEqual", "Between"])
   IsDivider: Boolean @examples(values: false)
   IsReorderable: Boolean @examples(values: true)
-  ShowCumulative: Boolean @examples(values: "null")
-  Cumulative: Int @examples(values: "null")
+  ShowCumulative: Boolean
+  Cumulative: Int
   CumulativeRange: String @examples(values: "2019-11-08T03:23:51")
   Modifiers: String @examples(values: ["None", "Dollar", "Percent", "Pound", "Euros"])
   Ordering: Int @examples(values: 0)
-  Disabled: Boolean @examples(values: "null")
-  Generated: Boolean @examples(values: "null")
+  Disabled: Boolean
+  Generated: Boolean
   IsFormula: Boolean @examples(values: false)
-  Average: Int @examples(values: "null")
+  Average: Int
   ShowAverage: Boolean @examples(values: false)
   AverageRange: String @examples(values: "2019-11-08T03:23:51")
   Permission: PermissionDto
@@ -97,11 +97,11 @@ type Score {
   MeasurableName: String @examples(values: "Measurable #1")
   Origins: NameId
   DateEntered: String @examples(values: "null")
-  Measured: Int @examples(values: "null")
-  Disabled: Boolean @examples(values: "null")
+  Measured: Int
+  Disabled: Boolean
   Direction: String @examples(values: ["LessThanOrEqual", "LessThan", "GreaterThan", "EqualTo", "GreaterThanNotEqual", "Between"])
   Target: Int @examples(values: 1)
-  AltTarget: Int @examples(values: "Null")
+  AltTarget: Int
   OrganizationId: Int @examples(values: 604)
   AccountableUserId: Int @examples(values: 605)
 }
