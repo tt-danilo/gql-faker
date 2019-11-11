@@ -1,0 +1,36 @@
+type Position {
+	Id: Int @examples(values: 658)
+	Type: String @examples(values: "AngularPosition")
+	Key: String @examples(values: "AngularPosition_658")
+	Name: String @examples(values: "Position 1.")
+}
+
+type Roles {
+  Id: Int @examples(values: [1141,1142,1143])
+  Type: String @examples(values: "AngularRole")
+  Key: String @examples(values: "AngularRole_1141")
+  Name: String @examples(values: ["Role 1", "Role 2", "Role 3"])
+  Ordering: Int @examples(values: [0,1,2,3])
+  CreateTime: String @examples(values: "2019-11-11T05:51:48")
+}
+
+
+type Query {
+  Get_Position(positionId: Int!): Position
+  Get_Roles(positionId: Int!): [Roles] @listLength(min:1, max:5)
+  Get_MyPosition(positionId: Int!): [Position] @listLength(min:1, max:5)
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+type Mutation {
+  Add_Position(title: String!): Mutation_response
+  Add_Role(positionId: Int!, title: String!): Mutation_response
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

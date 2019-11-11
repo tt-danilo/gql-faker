@@ -1,0 +1,46 @@
+type Rock {
+  Id: Int @examples(values: 1138)
+  Type: String @examples(values: "AngularRock")
+  Key: String @examples(values: "AngularRock_1138")
+  Name: String @examples(values: "Rock #1")
+  Owner: User
+  DueDate: String @examples(values: "2020-02-06T03:24:27")
+  Complete: Boolean
+  Completion: String @examples(values: ["Indeterminate", "AtRisk", "OnTrack", "Complete"])
+  CreateTime: String @examples(values: "2019-11-08T03:24:35")
+  Archived: Boolean
+  Permission: PermissionDto
+  Origins: [NameId] @listLength(min: 0, max: 5)
+}
+
+type User {
+  Id: Int @examples(values: 605)
+  Type: String @examples(values: "AngularUser")
+  Key: String @examples(values: "AngularUser_605")
+  Name: String @examples(values: "Danilo Zabala")
+  ImageUrl: String @examples(values: "/i/userplaceholder")
+}
+
+type PermissionDto {
+  CanEdit: Boolean
+}
+
+type NameId {
+  Id: Int
+  Name: String @fake(type: fullName)
+}
+
+type Query {
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+# type Mutation {
+# }
+
+schema {
+  query: Query
+  # mutation: Mutation
+}

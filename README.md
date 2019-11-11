@@ -6,10 +6,10 @@
 - [x] Headlines GQL Queries
 - [x] Issues GQL Queries
 - [x] Measurables GQL Queries
-- [ ] Milestones GQL Queries
-- [ ] Position GQL Queries
+- [x] Milestones GQL Queries
+- [x] Position GQL Queries
 - [ ] Postquarter GQL Queries
-- [ ] ROcks GQL Queries
+- [x] Rocks GQL Queries
 - [ ] Role GQL Queries
 - [ ] ScoreCard GQL Queries
 - [ ] Scores GQL Queries
@@ -21,7 +21,7 @@
 - [ ] Week GQL Queries
 
 ## Instruction
-All Queries have its own graphql file in src. To use, just copy graphql to editor.
+All Queries have its own graphql file in `src/graphql`. To use, just copy graphql to editor.
 
 ## Development
 

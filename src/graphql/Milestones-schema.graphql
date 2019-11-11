@@ -1,0 +1,27 @@
+type Milestone {
+  Id: Int @examples(values: 870)
+	Type: String @examples(values: "AngularMilestone")
+	Key: String @examples(values: "AngularMilestone_870")
+	DueDate: String @examples(values: "2019-12-05T15:59:59")
+	Name: String @examples(values: "Milestone #1")
+	Status: String @examples(values: ["NotDone", Done])
+	RockId: Int @examples(values: 1139)
+}
+
+type Query {
+	Get_Milestone(milestoneId: Int!): Milestone
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+type Mutation {
+  DeleteMilestone(milestoneId: Int!): Mutation_response
+  UpdateMilestone(milestoneId: Int!, title: String, dueDate: String, status: String): Mutation_response
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
