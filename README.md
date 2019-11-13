@@ -10,9 +10,9 @@
 - [x] Position GQL Queries
 - [ ] Postquarter GQL Queries
 - [x] Rocks GQL Queries
-- [ ] Role GQL Queries
-- [ ] ScoreCard GQL Queries
-- [ ] Scores GQL Queries
+- [x] Role GQL Queries
+- [x] ScoreCard GQL Queries
+- [x] Scores GQL Queries
 - [ ] Search GQL Queries
 - [ ] Seats GQL Queries
 - [ ] Teams GQL Queries

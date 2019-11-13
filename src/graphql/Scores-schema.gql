@@ -1,0 +1,40 @@
+type Score {
+  Id: Int @examples(values: 70529)
+  Type: String @examples(values: "AngularScore")
+  Key: String @examples(values: "AngularScore_70529")
+  ForWeek: Int @examples(values: 2587)
+  Week: String @examples(values: "2019-07-28T00:00:00Z")
+  MeasurableId: Int @examples(values: 1060)
+  MeasurableName: String @examples(values: "Measurable #1")
+  Origins: NameId
+  DateEntered: String @examples(values: "null")
+  Measured: Int
+  Disabled: Boolean
+  Direction: String @examples(values: ["LessThanOrEqual", "LessThan", "GreaterThan", "EqualTo", "GreaterThanNotEqual", "Between"])
+  Target: Int @examples(values: 1)
+  AltTarget: Int
+  OrganizationId: Int @examples(values: 604)
+  AccountableUserId: Int @examples(values: 605)
+}
+
+type NameId {
+  Id: Int
+  Name: String @fake(type: fullName)
+}
+
+type Query {
+  Get_score(scoreId: Int!): Score
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+type Mutation {
+  Update_Score(scoreId: Int!, value: Int!): Mutation_response
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

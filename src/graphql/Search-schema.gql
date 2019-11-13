@@ -1,0 +1,24 @@
+type Search {
+  Id: Int @examples(values: 659)
+  Name: String @examples(values: "Test Employee")
+  Description: String @examples(values: "")
+  OrganizationId: Int @examples(values:  604)
+  Organization: String @examples(values: "Null")
+  Email: String @examples(values: "test@test.com")
+  ImageUrl: String @examples(values: "/i/userplaceholder")
+  AltIcon: String @examples(values: "null")
+  ResultType: String @examples(values: "User")
+  ItemName: String @examples(values: "Test Employee")
+  ItemImageUrl: String @examples(values: "/i/userplaceholder")
+  ItemValue: String @examples(values: "659")
+  ItemDescription: String @examples(values: "")
+}
+
+type Query {
+  SearchAll(term: String!): [Search]@listLength(min:1, max: 5)
+  SearchUser(term: String!): [Search]@listLength(min:1, max: 5)
+}
+
+schema {
+  query: Query
+}
