@@ -1,0 +1,25 @@
+type User {
+  Id: Int @examples(values: 605)
+  Type: String @examples(values: "AngularUser")
+  Key: String @examples(values: "AngularUser_605")
+  Name: String @examples(values: "Danilo Zabala")
+  ImageUrl: String @examples(values: "/i/userplaceholder")
+}
+
+type Query {
+  getUserData(userId: Int): User
+  getDirectReports(userId: Int): [User] @listLength(min:1,max:5)
+  getViewableUsers: [User] @listLength(min:1,max:5)
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+# type Mutation {
+# }
+
+schema {
+  query: Query
+  # mutation: Mutation
+}

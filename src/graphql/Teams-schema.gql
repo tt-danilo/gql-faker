@@ -1,0 +1,37 @@
+type Team {
+  Id: Int @examples(values: 661)
+  Type: String @examples(values: "AngularTeam")
+  Key: String @examples(values: "AngularTeam_661")
+  Name: String @examples(values: "Test Team #1")
+  ManagedBy: Int @examples(values: 0)
+  TeamType: String @examples(values: "standard")
+}
+
+type User {
+  Id: Int @examples(values: 605)
+  Type: String @examples(values: "AngularUser")
+  Key: String @examples(values: "AngularUser_605")
+  Name: String @examples(values: "Danilo Zabala")
+  ImageUrl: String @examples(values: "/i/userplaceholder")
+}
+
+type Query {
+  getTeamMembers(teamId: Int!): [User] @listLength(min:1,max:5)
+  getTeamData(teamId: Int!): Team
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+type Mutation {
+  Delete_team_member(teamId: Int!, userId: Int!): Mutation_response
+  Add_team_member(teamId: Int!, userId: Int!): Mutation_response
+  Add_Team(title: String!): Mutation_response
+  Update_Team(teamId: Int!, title: String!): Mutation_response
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

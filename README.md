@@ -13,11 +13,11 @@
 - [x] Role GQL Queries
 - [x] ScoreCard GQL Queries
 - [x] Scores GQL Queries
-- [ ] Search GQL Queries
+- [x] Search GQL Queries
 - [ ] Seats GQL Queries
-- [ ] Teams GQL Queries
-- [ ] Todos GQL Queries
-- [ ] Users GQL Queries
+- [x] Teams GQL Queries
+- [x] Todos GQL Queries
+- [x] Users GQL Queries
 - [ ] Week GQL Queries
 
 ## Instruction

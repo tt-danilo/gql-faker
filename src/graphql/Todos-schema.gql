@@ -1,0 +1,49 @@
+type Todo {
+  Id: Int @examples(values: 3294)
+  Type: String @examples(values: "AngularTodo")
+  Key: String @examples(values: "AngularTodo_3294")
+  Name: String @examples(values: "To-Do #1")
+  DetailsUrl: String @examples(values: "http://env-tractiontools-qa-1.us-west-2.elasticbeanstalk.com/Todo/Pad/3294")
+  Origin: String @examples(values: "Test Meeting #1")
+  OriginId: Int @examples(values: 493)
+  DueDate: String @examples(values: "2019-11-15T15:59:59")
+  Owner: User
+  CompleteTime: String @examples(values: "Null")
+  CreateTime: String @examples(values: "2019-11-08T03:25:24")
+  Complete: Boolean @examples(values: 493)
+  TodoType: String @examples(values: ["L10", "Personal", "Milestone"])
+  Ordering: Int @examples(values: -3294)
+  Permission: PermissionDto
+}
+
+type User {
+  Id: Int @examples(values: 605)
+  Type: String @examples(values: "AngularUser")
+  Key: String @examples(values: "AngularUser_605")
+  Name: String @examples(values: "Danilo Zabala")
+  ImageUrl: String @examples(values: "/i/userplaceholder")
+}
+
+type PermissionDto {
+  CanEdit: Boolean
+}
+
+type Query {
+  getUserTodos(userId: Int): [Todo] @listLength(min:1,max:5)
+  getTodosData(todoId: Int!): Todo
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+type Mutation {
+  Create_todo(title: String!, notes: String, dueDate: String!): Mutation_response
+  Update_todo(title: String, dueDate: String): Mutation_response
+  Update_todo_complete(todoId: Int!, status: Boolean!): Mutation_response
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
