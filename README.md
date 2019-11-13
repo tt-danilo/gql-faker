@@ -14,7 +14,7 @@
 - [x] ScoreCard GQL Queries
 - [x] Scores GQL Queries
 - [x] Search GQL Queries
-- [ ] Seats GQL Queries
+- [x] Seats GQL Queries
 - [x] Teams GQL Queries
 - [x] Todos GQL Queries
 - [x] Users GQL Queries

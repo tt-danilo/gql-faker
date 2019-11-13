@@ -1,0 +1,67 @@
+type Seat {
+  Id: Int @examples(values: 358)
+  Type: String @examples(values: "AngularAccountabilityNode")
+  Key: String @examples(values: "AngularAccountabilityNode_358")
+  Name: String @examples(values: "Full Name")
+  Group: SeatGroup
+  User: User
+  Children: String @examples(values: "null")
+}
+
+type SeatGroup {
+  Id: Int @examples(values: 361)
+  Type: String @examples(values: "AngularAccountabilityGroup")
+  Key: String @examples(values: "AngularAccountabilityGroup_361")
+  Position: Position
+  Editable: Boolean
+  RoleGroups: [Role] @listLength(min:1,max:5)
+}
+
+type Position {
+	Id: Int @examples(values: 658)
+	Type: String @examples(values: "AngularPosition")
+	Key: String @examples(values: "AngularPosition_658")
+	Name: String @examples(values: "Position 1.")
+}
+
+type User {
+  Id: Int @examples(values: 605)
+  Type: String @examples(values: "AngularUser")
+  Key: String @examples(values: "AngularUser_605")
+  Name: String @examples(values: "Danilo Zabala")
+  ImageUrl: String @examples(values: "/i/userplaceholder")
+}
+
+type Role {
+  Id: Int @examples(values: 1141)
+  Type: String @examples(values: "AngularRole")
+  Key: String @examples(values: "AngularRole_1141")
+  Name: String @examples(values: "Role 123")
+  Ordering: Int
+  CreateTime: String @examples(values: "2019-11-11T05:51:48")
+}
+
+type Query {
+  getSeatData(seatId: Int!): Seat
+  getSeatPosition(seatId: Int!): Position
+  getSeatUser(seatId: Int!): User
+  getSeatsForUser(userId: Int): [Seat] @listLength(min:1,max:5)
+}
+
+type Mutation_response {
+  affected_rows: Int @examples(values: [1])
+}
+
+type Mutation {
+  AddUserToSeat(seatId: Int!, userId: Int!): Seat
+  SetPositionToSeat(seatId: Int!, positionId: Int!): Mutation_response
+  SetUserToSeat(seatId: Int!, userId: Int!): Mutation_response
+  DeleteSeat(seatId: Int!): Mutation_response
+  DeleteSeatPosition(seatId: Int!): Mutation_response
+  DeleteUserFromSeat(seatId: Int!): Mutation_response
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
